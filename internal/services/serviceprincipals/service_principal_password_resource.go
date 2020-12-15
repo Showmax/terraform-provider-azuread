@@ -45,7 +45,6 @@ func servicePrincipalPasswordResource() *schema.Resource {
 
 func servicePrincipalPasswordResourceCreate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 	client := meta.(*clients.Client).ServicePrincipals.AadClient
-
 	objectId := d.Get("service_principal_id").(string)
 
 	cred, err := aadgraph.PasswordCredentialForResource(d)
